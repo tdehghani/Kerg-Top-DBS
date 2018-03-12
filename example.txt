@@ -1,0 +1,88 @@
+=======================================
+ Top-DBS 1.0 
+ Prediction of beta-strand pairs, beta-strand pairing direction, and beta-sheet topology
+ Top-DBS can be downloaded from http://kerg.um.ac.ir/
+ 
+ Knowledge Engineering Research Group (KERG), Department of Computer Engineering,
+ Faculty of Engineering, Ferdowsi University of Mashhad, Iran. 
+ Home page: https://kerg.um.ac.ir/ ; Email: kerg@um.ac.ir
+ 
+ Contact: 
+ Toktam Dehghani
+ Ph.D. Candidate and Researcher,
+ Department of Computer Science and Software Engineering,
+ Faculty of Engineering, Ferdowsi University of Mashhad, Iran.
+ Dehgani.toktam@mail.um.ac.ir    
+ 
+ Copyright (C) 2018 Toktam Dehghani
+ The program is free for scientific/academic use. 
+ The software must not be further distributed without prior permission of the author.
+ 
+=======================================
+
+Name:
+1NEGA
+
+Sequence:
+KELVLALYDYQEKSPREVTMKKGDILTLLNSTNKDWWKVEVNDRQGFVPAAYVKKLAAAWSHPQF
+
+=======================================
+Preprocessing:[example\1nega\1nega.str]
+Secondary Structure(H:helix, E:Beta Strand/Bridge, C:Coil):
+CCEEEECCCECCCCCCECCECCCCEEEEEECCCCCEEEEEECCEEEEEEHHHEEECCCCCCCCCC
+
+The predicted beta-strands:
+Format: id:[a-b]:[c-d].
+id: the index of strand;
+a-b: the starting and ending positions of strand in the sequence;
+c-d: the indices of the first and last beta-residue of strand. All the beta-residues in the sequence are ordered sequentially and assigned an index starting from 1.
+    1:[3-6]:[1-4]
+    2:[10-10]:[5-5]
+    3:[17-17]:[6-6]
+    4:[20-20]:[7-7]
+    5:[25-30]:[8-13]
+    6:[36-41]:[14-19]
+    7:[44-49]:[20-25]
+    8:[53-55]:[26-28]
+=======================================
+Input: 
+A beta-strand pairwise alignment matrix:  [example\1nega\1nega.txt]
+Format: size M*2M 
+Score of Parallel and antiparallel pairwise interactions
+
+0.010226 0.014095 0.020692 0.025805 0.291242 0.066746 0.066671 0.055796 0.014619 0.014095 0.020692 0.025805 0.275352 0.068759 0.080891 0.094426 
+0.014095 0.000000 0.071660 0.491020 0.013950 0.028283 0.017211 0.026732 0.014095 0.000000 0.071660 0.491020 0.013950 0.028283 0.017211 0.026732 
+0.020692 0.071660 0.000000 0.038153 0.013403 0.014979 0.017229 0.014467 0.020692 0.071660 0.000000 0.038153 0.013403 0.014979 0.017229 0.014467 
+0.025805 0.491020 0.038153 0.000000 0.030389 0.056927 0.016667 0.047259 0.025805 0.491020 0.038153 0.000000 0.030389 0.056927 0.016667 0.047259 
+0.291242 0.013950 0.013403 0.030389 0.016530 0.665610 0.099905 0.054465 0.275352 0.013950 0.013403 0.030389 0.021927 1.559118 0.163217 0.096667 
+0.066746 0.028283 0.014979 0.056927 0.665610 0.016337 1.006105 0.026842 0.068759 0.028283 0.014979 0.056927 1.559118 0.020161 5.882427 0.049491 
+0.066671 0.017211 0.017229 0.016667 0.099905 1.006105 0.016181 0.015226 0.080891 0.017211 0.017229 0.016667 0.163217 5.882427 0.022995 0.023495 
+0.055796 0.026732 0.014467 0.047259 0.054465 0.026842 0.015226 0.000000 0.094426 0.026732 0.014467 0.047259 0.096667 0.049491 0.023495 0.000000 
+
+=======================================
+Output:
+The predicted strand pairs and strand alignments by Top-DBS:[example\1nega\1nega.out]
+Format: x--y : r
+x: the index of strand 1, y: the index of strand 2. x and y are paired.
+r: pairing direction (A: antiparallel, P: parallel, B: bridge)
+
+8--1 : A
+1--5 : P
+5--6 : A
+6--7 : A
+7--3 : A
+2--4 : P
+
+=======================================
+The correct strand pairs and strand alignments: [example\1nega\1nega.str]
+Format: x--y : r
+x: the index of strand 1, y: the index of strand 2. x and y are paired.
+r: pairing direction (A: antiparallel, P: parallel, B: bridge)
+
+1--5 : A
+1--8 : A
+2--4 : B
+3--7 : B
+5--6 : A
+6--7 : A
+
